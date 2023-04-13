@@ -238,9 +238,9 @@ INSERT INTO
 
 INSERT INTO
   batch_code (
-    id_batch_code,
+    id,
     amount,
-    date_receibe,
+    date_receive,
     expiration_date
   )
 VALUES
@@ -253,9 +253,9 @@ VALUES
 
 INSERT INTO
   batch_code (
-    id_batch_code,
+    id,
     amount,
-    date_receibe,
+    date_receive,
     expiration_date
   )
 VALUES

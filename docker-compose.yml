@@ -8,10 +8,8 @@ services:
     volumes:
       - ./db/sql/veterinary/create_schema.sql:/docker-entrypoint-initdb.d/create_schema.sql
       - ./db/sql/veterinary/data.sql:/docker-entrypoint-initdb.d/data.sql
-      - ./my/own/datadir:/var/lib/mysql
     environment:
       MYSQL_DATABASE: veterinary
-      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
     ports:
       - 3306:3306

@@ -1,3 +1,8 @@
+com\veterinary\practica\domains\repositories\SocialNetworkRepository.class
+com\veterinary\practica\domains\entities\AddressEntity.class
+com\veterinary\practica\domains\repositories\GenderRepository.class
+com\veterinary\practica\domains\entities\GenderEntity.class
+com\veterinary\practica\domains\repositories\ClientRepository.class
 com\veterinary\practica\VeterinaryApplication.class
-com\veterinary\practica\domains\entities\Address$AddressBuilder.class
-com\veterinary\practica\domains\entities\Address.class
+com\veterinary\practica\domains\repositories\AddressRepisotory.class
+com\veterinary\practica\domains\repositories\CountryRepository.class
