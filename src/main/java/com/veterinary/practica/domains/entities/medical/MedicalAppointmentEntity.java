@@ -27,10 +27,6 @@ public class MedicalAppointmentEntity {
     private VeterinaryEntity veterinary;
 
     @ManyToOne
-    @JoinColumn(name = "id_client", nullable = false)
-    private ClientEntity client;
-
-    @ManyToOne
     @JoinColumn(name = "id_patient", nullable = false)
     private PatientEntity patient;
 

@@ -247,13 +247,11 @@ CREATE TABLE social_networks_veterinaries(
 CREATE TABLE medical_appointment(
                                   id VARCHAR(60) PRIMARY KEY,
                                   id_veterinary BIGINT NOT NULL,
-                                  id_client BIGINT NOT NULL,
                                   id_patient BIGINT NOT NULL,
                                   consultation_date TIMESTAMP NOT NULL,
                                   community_service BOOLEAN NOT NULL,
                                   payment DECIMAL NOT NULL,
                                   FOREIGN KEY (id_veterinary) REFERENCES veterinary (id) ON DELETE RESTRICT,
-                                  FOREIGN KEY (id_client) REFERENCES client (id) ON DELETE RESTRICT,
                                   FOREIGN KEY (id_patient) REFERENCES patient (id) ON DELETE RESTRICT
 );
 
@@ -269,13 +267,14 @@ CREATE TABLE medical_consultation(
 
 #LABORATORY
 CREATE TABLE laboratory(
-                         id BIGINT PRIMARY KEY AUTO_INCREMENT,
-                         name VARCHAR(100) NOT NULL UNIQUE,
-                         laboratory_code VARCHAR(100) NOT NULL UNIQUE,
-                         id_country INT NOT NULL,
-                         id_email_laboratory BIGINT NOT NULL,
-                         FOREIGN KEY(id_country) REFERENCES country(id),
-                         FOREIGN KEY(id_email_laboratory) REFERENCES email_laboratory(id)
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    laboratory_code VARCHAR(30) UNIQUE ,
+    name VARCHAR(100) NOT NULL UNIQUE,
+    rfc VARCHAR(13) NOT NULL UNIQUE,
+    id_country INT NOT NULL,
+    id_email_laboratory BIGINT NOT NULL,
+    FOREIGN KEY(id_country) REFERENCES country(id),
+    FOREIGN KEY(id_email_laboratory) REFERENCES email_laboratory(id)
 );
 
 CREATE TABLE telephones_laboratory(
@@ -298,16 +297,17 @@ CREATE TABLE social_networks_laboratory(
 
 #BRAND
 CREATE TABLE brand(
-                      id BIGINT PRIMARY KEY AUTO_INCREMENT,
-                      name VARCHAR(50) NOT NULL UNIQUE,
-                      registration DATE NOT NULL,
-                      id_laboratory BIGINT NOT NULL,
-                      id_country INT NOT NULL,
-                      id_email_brand BIGINT NOT NULL,
-                      FOREIGN KEY (id_laboratory) REFERENCES laboratory(id),
-                      FOREIGN KEY(id_country) REFERENCES country(id),
-                      FOREIGN KEY(id_email_brand) REFERENCES email_brand(id)
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    rfc VARCHAR(13),
+    name VARCHAR(50) NOT NULL UNIQUE,
+    registration DATE NOT NULL,
+    id_country INT NOT NULL,
+    id_email_brand BIGINT NOT NULL,
+    FOREIGN KEY(id_country) REFERENCES country(id),
+    FOREIGN KEY(id_email_brand) REFERENCES email_brand(id)
 );
+
+
 
 CREATE TABLE social_networks_brands(
                                    id BIGINT PRIMARY KEY AUTO_INCREMENT,
@@ -327,26 +327,47 @@ CREATE TABLE telephones_brands(
                               FOREIGN KEY (id_brand) REFERENCES brand (id) ON DELETE CASCADE
 );
 
+CREATE TABLE laboratory_brand (
+                                  id_brand BIGINT NOT NULL,
+                                  id_laboratory BIGINT NOT NULL,
+                                  FOREIGN KEY (id_brand) REFERENCES brand (id) ON DELETE CASCADE,
+                                  FOREIGN KEY (id_laboratory) REFERENCES laboratory (id) ON DELETE CASCADE
+);
+
+
 #MEDICINE
 CREATE TABLE medicine (
                         id BIGINT PRIMARY KEY AUTO_INCREMENT,
                         name VARCHAR(200) NOT NULL,
-                        id_breed BIGINT NOT NULL,
-                        id_via_administration INT NOT NULL,
+                        id_generic_name BIGINT NOT NULL,
                         id_batch_code VARCHAR(50) NOT NULL,
                         id_brand BIGINT NOT NULL,
                         dose VARCHAR(200),
-                        FOREIGN KEY (id_breed) REFERENCES breed (id) ON DELETE CASCADE,
-                        FOREIGN KEY (id_via_administration) REFERENCES via_administration (id) ON DELETE CASCADE,
                         FOREIGN KEY (id_batch_code) REFERENCES batch_code (id) ON DELETE CASCADE,
-                        FOREIGN KEY (id_brand) REFERENCES brand (id) ON DELETE CASCADE
+                        FOREIGN KEY (id_brand) REFERENCES brand (rfc) ON DELETE CASCADE,
+                        FOREIGN KEY (id_generic_name) REFERENCES generic_name (id) ON DELETE CASCADE
+);
+
+CREATE TABLE generic_name(
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(200) NOT NULL,
+    id_breed BIGINT NOT NULL,
+    id_via_administration INT NOT NULL,
+    FOREIGN KEY (id_breed) REFERENCES breed (id) ON DELETE CASCADE,
+    FOREIGN KEY (id_via_administration) REFERENCES via_administration (id) ON DELETE CASCADE
 );
 
 #PRODUCT
 CREATE TABLE product(
-                      id VARCHAR(50) PRIMARY KEY,
-                      description LONGTEXT,
-                      id_medicine BIGINT NOT NULL,
-                      unit_price DECIMAL NOT NULL,
-                      FOREIGN KEY (id_medicine) REFERENCES medicine (id) ON DELETE CASCADE
+    id VARCHAR(50) PRIMARY KEY,
+    description LONGTEXT,
+    type ENUM('medicine') NOT NULL,
+    unit_price DECIMAL NOT NULL
+);
+
+CREATE TABLE product_medicine(
+    id_product BIGINT NOT NULL,
+    id_medicine BIGINT NOT NULL,
+    FOREIGN KEY (id_product) REFERENCES product(id),
+    FOREIGN KEY (id_medicine) REFERENCES medicine(id)
 );
