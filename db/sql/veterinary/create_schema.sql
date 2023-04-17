@@ -8,7 +8,7 @@ CREATE TABLE breed (
                        id BIGINT PRIMARY KEY AUTO_INCREMENT,
                        name VARCHAR(45) NOT NULL UNIQUE,
                        id_specie BIGINT NOT NULL,
-                       FOREIGN KEY (id_specie) REFERENCES specie(id) ON DELETE RESTRICT
+                       FOREIGN KEY (id_specie) REFERENCES specie(id)
 );
 
 CREATE TABLE gender(
@@ -65,7 +65,7 @@ CREATE TABLE via_administration(
                                    id INT PRIMARY KEY AUTO_INCREMENT,
                                    name VARCHAR(50) NOT NULL,
                                    id_medication_form INT NOT NULL,
-                                   FOREIGN KEY (id_medication_form) REFERENCES medication_form(id)
+                                   FOREIGN KEY (id_medication_form) REFERENCES medication_form(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 #BATCH CODE
@@ -92,28 +92,28 @@ CREATE TABLE state_country(
                               id BIGINT PRIMARY KEY AUTO_INCREMENT,
                               name varchar(60) NOT NULL UNIQUE,
                               id_country INT NOT NULL,
-                              FOREIGN KEY (id_country) REFERENCES country(id) ON DELETE RESTRICT
+                              FOREIGN KEY (id_country) REFERENCES country(id)
 );
 
 CREATE TABLE municipality (
                               id BIGINT PRIMARY KEY AUTO_INCREMENT,
                               name varchar(60) NOT NULL,
                               id_state_country BIGINT NOT NULL,
-                              FOREIGN KEY (id_state_country) REFERENCES state_country(id) ON DELETE RESTRICT
+                              FOREIGN KEY (id_state_country) REFERENCES state_country(id)
 );
 
 CREATE TABLE colony (
                         id BIGINT PRIMARY KEY AUTO_INCREMENT,
                         name varchar(60) NOT NULL,
                         id_municipality BIGINT NOT NULL,
-                        FOREIGN KEY (id_municipality) REFERENCES municipality(id) ON DELETE RESTRICT
+                        FOREIGN KEY (id_municipality) REFERENCES municipality(id)
 );
 
 CREATE TABLE street(
                        id BIGINT PRIMARY KEY AUTO_INCREMENT,
                        name varchar(60) NOT NULL,
                        id_colony BIGINT NOT NULL,
-                       FOREIGN KEY (id_colony) REFERENCES colony(id) ON DELETE RESTRICT
+                       FOREIGN KEY (id_colony) REFERENCES colony(id) ON UPDATE CASCADE
 );
 
 CREATE TABLE address (
@@ -123,7 +123,7 @@ CREATE TABLE address (
                          postal_code varchar(25) NOT NULL,
                          num_int varchar(25) NOT NULL,
                          num_ext varchar(25),
-                         FOREIGN KEY (id_street) REFERENCES street(id) ON DELETE RESTRICT
+                         FOREIGN KEY (id_street) REFERENCES street(id) ON UPDATE CASCADE
 );
 
 #type telephone
@@ -283,7 +283,7 @@ CREATE TABLE medical_consultation(
                                      start_time TIMESTAMP NOT NULL,
                                      end_time TIMESTAMP,
                                      next_consultation TIMESTAMP,
-                                     FOREIGN KEY (id_medical_appointment) REFERENCES medical_appointment (id) ON DELETE RESTRICT
+                                     FOREIGN KEY (id_medical_appointment) REFERENCES medical_appointment (id)
 );
 
 #LABORATORY
@@ -303,8 +303,8 @@ CREATE TABLE telephones_laboratories(
                                         id_type_telephone BIGINT NOT NULL,
                                         id_laboratory BIGINT NOT NULL,
                                         phone_number VARCHAR(30) UNIQUE NOT NULL,
-                                        FOREIGN KEY (id_type_telephone) REFERENCES type_telephone (id) ON DELETE CASCADE,
-                                        FOREIGN KEY (id_laboratory) REFERENCES laboratory (id) ON DELETE CASCADE
+                                        FOREIGN KEY (id_type_telephone) REFERENCES type_telephone (id),
+                                        FOREIGN KEY (id_laboratory) REFERENCES laboratory (id)
 );
 
 CREATE TABLE social_networks_laboratories(
@@ -377,15 +377,15 @@ CREATE TABLE medicine (
                           id_category BIGINT NOT NULL,
                           id_batch_code VARCHAR(50) NOT NULL,
                           id_brand BIGINT NOT NULL,
-                          FOREIGN KEY (id_category) REFERENCES category (id) ON DELETE CASCADE,
-                          FOREIGN KEY (id_batch_code) REFERENCES batch_code (id) ON DELETE CASCADE,
-                          FOREIGN KEY (id_brand) REFERENCES brand (id) ON DELETE CASCADE,
-                          FOREIGN KEY (id_generic_name) REFERENCES generic_name (id) ON DELETE CASCADE
+                          FOREIGN KEY (id_category) REFERENCES category (id) ON DELETE CASCADE ON UPDATE CASCADE,
+                          FOREIGN KEY (id_batch_code) REFERENCES batch_code (id),
+                          FOREIGN KEY (id_brand) REFERENCES brand (id) ON UPDATE CASCADE ON DELETE CASCADE,
+                          FOREIGN KEY (id_generic_name) REFERENCES generic_name (id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 CREATE TABLE generic_name_via_administration(
                                                 id_generic_name BIGINT NOT NULL,
                                                 id_via_administration INT NOT NULL,
-                                                FOREIGN KEY (id_via_administration) REFERENCES via_administration (id) ON DELETE CASCADE,
-                                                FOREIGN KEY (id_generic_name) REFERENCES generic_name (id) ON DELETE CASCADE
+                                                FOREIGN KEY (id_via_administration) REFERENCES via_administration (id) ON DELETE CASCADE ON UPDATE CASCADE,
+                                                FOREIGN KEY (id_generic_name) REFERENCES generic_name (id) ON DELETE CASCADE ON UPDATE CASCADE
 );

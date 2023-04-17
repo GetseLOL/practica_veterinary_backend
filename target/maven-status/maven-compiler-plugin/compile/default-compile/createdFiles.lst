@@ -1,8 +1,7 @@
-com\veterinary\practica\domains\repositories\SocialNetworkRepository.class
-com\veterinary\practica\domains\entities\AddressEntity.class
-com\veterinary\practica\domains\repositories\GenderRepository.class
-com\veterinary\practica\domains\entities\GenderEntity.class
-com\veterinary\practica\domains\repositories\ClientRepository.class
 com\veterinary\practica\VeterinaryApplication.class
-com\veterinary\practica\domains\repositories\AddressRepisotory.class
-com\veterinary\practica\domains\repositories\CountryRepository.class
+com\veterinary\practica\domains\repositories\employee\EmailEmployeeRepository.class
+com\veterinary\practica\domains\repositories\veterinary\SocialNetworksVeterinariesRepository.class
+com\veterinary\practica\domains\repositories\clients\TelephonesClientsRepository.class
+com\veterinary\practica\domains\repositories\employee\TelephonesEmployeesRepository.class
+com\veterinary\practica\domains\repositories\laboratory\LaboratoryRepository.class
+com\veterinary\practica\domains\repositories\address\AddressRepository.class

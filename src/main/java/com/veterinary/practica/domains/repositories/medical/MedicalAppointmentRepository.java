@@ -1,6 +1,6 @@
 package com.veterinary.practica.domains.repositories.medical;
 
-import com.veterinary.practica.domains.entities.medical.MedicalAppointmentEntity;
+import com.veterinary.practica.api.models.responses.medical.MedicalAppointmentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
