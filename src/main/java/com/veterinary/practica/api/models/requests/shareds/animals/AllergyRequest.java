@@ -13,8 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AllergyResponse {
-	private Long id;
+public class AllergyRequest {
 	private String name;
 	private List<PatientResponse> patients = new ArrayList<>();
 }

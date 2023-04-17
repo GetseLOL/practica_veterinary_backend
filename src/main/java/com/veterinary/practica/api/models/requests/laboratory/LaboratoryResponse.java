@@ -1,6 +1,6 @@
 package com.veterinary.practica.api.models.requests.laboratory;
 
-import com.veterinary.practica.api.models.requests.address.CountryResponse;
+import com.veterinary.practica.api.models.requests.address.CountryRequest;
 import com.veterinary.practica.api.models.requests.brand.BrandResponse;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +18,7 @@ public class LaboratoryResponse {
 	private String laboratoryCode;
 	private String name;
 	private String rfc;
-	private CountryResponse country;
+	private CountryRequest country;
 	private EmailsLaboratoriesResponse emailLaboratory;
 	private List<BrandResponse> laboratories;
 

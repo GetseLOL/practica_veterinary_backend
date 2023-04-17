@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class StateCountryResponse {
 	private Long id;
 	private String name;
-	private CountryResponse country;
+	private CountryRequest country;
 }

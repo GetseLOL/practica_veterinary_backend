@@ -1,8 +1,8 @@
 package com.veterinary.practica.api.models.requests.animals;
 
 import com.veterinary.practica.api.models.requests.clients.ClientResponse;
-import com.veterinary.practica.api.models.requests.shareds.GenderResponse;
-import com.veterinary.practica.api.models.requests.shareds.animals.AllergyResponse;
+import com.veterinary.practica.api.models.requests.shareds.GenderRequest;
+import com.veterinary.practica.api.models.requests.shareds.animals.AllergyRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -23,8 +23,8 @@ public class PatientResponse {
 	private String ageMonth;
 	private Float weight;
 	private Float height;
-	private BreedResponse breed;
-	private GenderResponse gender;
+	private BreedRequest breed;
+	private GenderRequest gender;
 	private Integer numVisits;
-	private List<AllergyResponse> allergies = new ArrayList<>();
+	private List<AllergyRequest> allergies = new ArrayList<>();
 }

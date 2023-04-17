@@ -1,18 +1,18 @@
-package com.veterinary.practica.api.models.requests.animals;
+package com.veterinary.practica.api.models.requests.shareds;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Length;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SpecieRequest {
-	@Size(min = 1, max = 45, message = "The size have to a length between 1 and 45 characters")
+public class GenderRequest {
+	@Length(min = 1, max = 50)
 	@NotBlank(message = "Name is mandatory")
 	private String name;
 }
