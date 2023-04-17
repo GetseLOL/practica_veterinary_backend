@@ -1,6 +1,6 @@
 package com.veterinary.practica.domains.entities.veterinary;
 
-import com.veterinary.practica.domains.entities.shareds.SocialNetworkEntity;
+import com.veterinary.practica.domains.entities.shareds.contact.SocialNetworkEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

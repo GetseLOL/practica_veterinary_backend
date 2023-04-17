@@ -1,11 +1,13 @@
 package com.veterinary.practica.domains.entities.clients;
 
-import com.veterinary.practica.domains.entities.shareds.SocialNetworkEntity;
+import com.veterinary.practica.domains.entities.shareds.contact.SocialNetworkEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,6 +26,6 @@ public class SocialNetworksClientsEntity {
     @JoinColumn(name = "id_social_network", nullable = false)
     private SocialNetworkEntity socialNetwork;
 
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = false, length = 250)
     private String url;
 }

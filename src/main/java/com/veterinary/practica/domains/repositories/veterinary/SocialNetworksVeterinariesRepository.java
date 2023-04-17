@@ -1,6 +1,6 @@
 package com.veterinary.practica.domains.repositories.veterinary;
 
-import com.veterinary.practica.domains.repositories.patients.SocialNetworksPatientRepository;
+import com.veterinary.practica.domains.repositories.animals.SocialNetworksPatientRepository;
 import org.springframework.data.repository.CrudRepository;
 
 public interface SocialNetworksVeterinariesRepository extends CrudRepository<SocialNetworksPatientRepository,

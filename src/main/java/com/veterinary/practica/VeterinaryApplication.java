@@ -1,12 +1,12 @@
 package com.veterinary.practica;
 
-import com.veterinary.practica.domains.entities.shareds.SocialNetworkEntity;
+import com.veterinary.practica.domains.entities.shareds.contact.SocialNetworkEntity;
 import com.veterinary.practica.domains.entities.clients.SocialNetworksClientsEntity;
 import com.veterinary.practica.domains.repositories.address.*;
 import com.veterinary.practica.domains.repositories.clients.ClientRepository;
 import com.veterinary.practica.domains.repositories.clients.EmailClientRepository;
 import com.veterinary.practica.domains.repositories.shared.GenderRepository;
-import com.veterinary.practica.domains.repositories.shared.SocialNetworkRepository;
+import com.veterinary.practica.domains.repositories.shared.contact.SocialNetworkRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;

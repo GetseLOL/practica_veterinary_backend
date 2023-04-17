@@ -2,9 +2,11 @@ package com.veterinary.practica.domains.entities.employee;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,4 +19,7 @@ public class EmailEmployeeEntity {
 
     @Column(length = 60, unique = true, nullable = false)
     private String email;
+
+    @OneToOne(mappedBy = "emailEmployee")
+    private EmployeeEntity employee;
 }

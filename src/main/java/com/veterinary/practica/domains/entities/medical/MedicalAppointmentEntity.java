@@ -1,10 +1,10 @@
 package com.veterinary.practica.domains.entities.medical;
 
-import com.veterinary.practica.domains.entities.clients.ClientEntity;
-import com.veterinary.practica.domains.entities.patients.PatientEntity;
+import com.veterinary.practica.domains.entities.animals.PatientEntity;
 import com.veterinary.practica.domains.entities.veterinary.VeterinaryEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +12,7 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.UUID;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,6 +21,7 @@ import java.util.UUID;
 public class MedicalAppointmentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(length = 60)
     private UUID id;
 
     @ManyToOne

@@ -1,14 +1,15 @@
 package com.veterinary.practica.domains.entities.medical;
 
 import jakarta.persistence.*;
-import jdk.jfr.Timestamp;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.UUID;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,21 +18,25 @@ import java.util.UUID;
 public class MedicalConsultationEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(length = 60)
     private UUID id;
 
-    @OneToOne
     @MapsId
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_medical_appointment")
     private MedicalAppointmentEntity medicalAppointment;
 
-    private String descripcion;
+    private String description;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
-    private Date consultationDate;
+    private Timestamp startTime;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Timestamp endTime;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false)
-    private Date nextConsultation;
+    private Timestamp nextConsultation;
 
 }

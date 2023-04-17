@@ -5,11 +5,13 @@ import com.veterinary.practica.domains.entities.shareds.GenderEntity;
 import com.veterinary.practica.domains.entities.veterinary.VeterinaryEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,22 +31,22 @@ public class EmployeeEntity {
     @Column(length = 25)
     private String secondLastName;
 
-    @Column(length = 25, nullable = false, precision = 10, scale = 2)
+    @Column(length = 25, nullable = false)
     private BigDecimal salary;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_email_employee", nullable = false, unique = true)
     private EmailEmployeeEntity emailEmployee;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_gender", nullable = false)
     private GenderEntity gender;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_address", nullable = false)
     private AddressEntity address;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_rol", nullable = false)
     private RolEntity rol;
 

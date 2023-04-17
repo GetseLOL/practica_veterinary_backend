@@ -237,36 +237,6 @@ INSERT INTO
   via_administration (id_medication_form, name) VALUE(4, "oral");
 
 INSERT INTO
-  batch_code (
-    id,
-    amount,
-    date_receive,
-    expiration_date
-  )
-VALUES
-  (
-    "de720861-6ab6-40c6-8d91-cb5e83af6e08",
-    50,
-    "2023-04-10",
-    "2024-04-10"
-  );
-
-INSERT INTO
-  batch_code (
-    id,
-    amount,
-    date_receive,
-    expiration_date
-  )
-VALUES
-  (
-    "d8fd00fc-e499-4a2b-8bf9-8af40fdacfa5",
-    50,
-    "2023-02-05",
-    "2023-10-10"
-  );
-
-INSERT INTO
   country (name)
 VALUES
   ("Mexico");

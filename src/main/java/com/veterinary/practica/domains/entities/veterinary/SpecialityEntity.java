@@ -2,9 +2,11 @@ package com.veterinary.practica.domains.entities.veterinary;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -15,10 +17,6 @@ public class SpecialityEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 50, nullable = false)
+    @Column(length = 50, nullable = false, unique = true)
     private String name;
-
-    @OneToOne
-    @JoinColumn(name = "id_veterinary", nullable = false)
-    private VeterinaryEntity veterinary;
 }

@@ -2,12 +2,14 @@ package com.veterinary.practica.domains.entities.clients;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "email_client")
 public class EmailClientEntity {

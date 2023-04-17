@@ -4,6 +4,7 @@ import com.veterinary.practica.domains.entities.clients.ClientEntity;
 import com.veterinary.practica.domains.entities.employee.EmployeeEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Builder
 @Table(name = "gender")
 public class GenderEntity {
     @Id

@@ -1,6 +1,7 @@
 package com.veterinary.practica.domains.repositories.employee;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TelephonesEmployeesRepository extends CrudRepository<TelephonesEmployeesRepository, Long> {
+public interface TelephonesEmployeesRepository extends JpaRepository<TelephonesEmployeesRepository,
+        Long> {
 }

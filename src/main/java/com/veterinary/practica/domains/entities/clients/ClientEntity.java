@@ -4,9 +4,11 @@ import com.veterinary.practica.domains.entities.address.AddressEntity;
 import com.veterinary.practica.domains.entities.shareds.GenderEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,15 +29,15 @@ public class ClientEntity {
     @Column(length = 25)
     private String secondLastName;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_email_client", nullable = false, unique = true)
     private EmailClientEntity emailClient;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_gender", nullable = false)
     private GenderEntity gender;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_address", nullable = false)
     private AddressEntity address;
 }

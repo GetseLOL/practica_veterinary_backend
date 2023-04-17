@@ -2,9 +2,11 @@ package com.veterinary.practica.domains.entities.address;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +20,7 @@ public class ColonyEntity {
     @Column(length = 60, nullable = false)
     private String name;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_municipality", nullable = false)
     private MunicipalityEntity municipality;
 }
