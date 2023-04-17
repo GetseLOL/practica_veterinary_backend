@@ -17,26 +17,25 @@ import java.sql.Date;
 @Entity
 @Table(name = "veterinary")
 public class VeterinaryEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_employee")
-    private EmployeeEntity employee;
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_employee")
+	private EmployeeEntity employee;
 
-    @Column(length = 100, nullable = false, unique = true)
-    private String identificationCard;
+	@Column(length = 100, nullable = false, unique = true)
+	private String identificationCard;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_speciality")
-    private SpecialityEntity speciality;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_speciality")
+	private SpecialityEntity speciality;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_career")
-    private CareerEntity university;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_career")
+	private CareerEntity university;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date graduate;
+	private Date graduate;
 
 }

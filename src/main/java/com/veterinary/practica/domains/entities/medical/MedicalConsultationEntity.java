@@ -16,27 +16,24 @@ import java.util.UUID;
 @Entity
 @Table(name = "medical_consultation")
 public class MedicalConsultationEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(length = 60)
-    private UUID id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(length = 60)
+	private UUID id;
 
-    @MapsId
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_medical_appointment")
-    private MedicalAppointmentEntity medicalAppointment;
+	@MapsId
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "id_medical_appointment")
+	private MedicalAppointmentEntity medicalAppointment;
 
-    private String description;
+	private String description;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
-    private Timestamp startTime;
+	@Column(nullable = false)
+	private Timestamp startTime;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Timestamp endTime;
+	private Timestamp endTime;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(nullable = false)
-    private Timestamp nextConsultation;
+	@Column(nullable = false)
+	private Timestamp nextConsultation;
 
 }

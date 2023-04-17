@@ -19,28 +19,27 @@ import java.util.UUID;
 @Entity
 @Table(name = "medical_appointment")
 public class MedicalAppointmentEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(length = 60)
-    private UUID id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.UUID)
+	@Column(length = 60)
+	private UUID id;
 
-    @ManyToOne
-    @JoinColumn(name = "id_veterinary", nullable = false)
-    private VeterinaryEntity veterinary;
+	@ManyToOne
+	@JoinColumn(name = "id_veterinary", nullable = false)
+	private VeterinaryEntity veterinary;
 
-    @ManyToOne
-    @JoinColumn(name = "id_patient", nullable = false)
-    private PatientEntity patient;
+	@ManyToOne
+	@JoinColumn(name = "id_patient", nullable = false)
+	private PatientEntity patient;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date consultationDate;
+	private Date consultationDate;
 
-    @Column(nullable = false)
-    private Boolean communityService;
+	@Column(nullable = false)
+	private Boolean communityService;
 
-    @Column(nullable = false)
-    private BigDecimal payment;
+	@Column(nullable = false)
+	private BigDecimal payment;
 
-    @OneToOne(mappedBy = "medicalAppointment")
-    private MedicalConsultationEntity medicalConsultation;
+	@OneToOne(mappedBy = "medicalAppointment")
+	private MedicalConsultationEntity medicalConsultation;
 }
