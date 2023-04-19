@@ -10,5 +10,5 @@ public interface CrudService<RQ, RS, ID> {
 
 	RS read(ID id);
 
-	RS readAll();
+	Iterable<RS> readAll();
 }
