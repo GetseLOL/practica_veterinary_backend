@@ -4,6 +4,7 @@ import com.veterinary.practica.api.models.requests.address.CountryRequest;
 import com.veterinary.practica.api.models.responses.address.CountryResponse;
 import com.veterinary.practica.infraestructure.abstract_services.address.ICountryService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Digits;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,10 @@ public class CountryRestController{
 	}
 
 	@GetMapping("{id}")
-	public ResponseEntity<CountryResponse> get(@PathVariable Integer id){
+	public ResponseEntity<CountryResponse> get(@PathVariable
+	                                               @Digits(message = "The id is required numeric",
+			                                               integer = 0, fraction = 0)
+	                                               Integer id){
 		return ResponseEntity.ok(this.countryService.read(id));
 	}
 
