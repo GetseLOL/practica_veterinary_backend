@@ -7,4 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("address/state_country")
 @AllArgsConstructor
-public class StateCountryRestController{}
+public class StateCountryRestController{
+
+}
