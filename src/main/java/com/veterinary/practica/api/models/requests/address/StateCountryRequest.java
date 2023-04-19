@@ -11,5 +11,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class StateCountryRequest {
 	private String name;
-	private Integer country;
+	private Integer byIdCountry;
 }
