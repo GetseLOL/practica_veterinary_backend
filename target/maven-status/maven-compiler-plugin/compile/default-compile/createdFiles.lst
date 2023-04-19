@@ -1,5 +1,6 @@
 com\veterinary\practica\VeterinaryApplication.class
 com\veterinary\practica\domains\repositories\employee\EmailEmployeeRepository.class
+com\veterinary\practica\infraestructure\services\address\CountryService.class
 com\veterinary\practica\domains\entities\medical\MedicalConsultationEntity.class
 com\veterinary\practica\domains\entities\laboratory\LaboratoryEntity.class
 com\veterinary\practica\domains\entities\laboratory\LaboratoryEntity$LaboratoryEntityBuilder.class
