@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class StateCountryResponse {
-	private Long id;
+public class StateCountryRequest {
 	private String name;
-	private CountryRequest country;
+	private Integer country;
 }

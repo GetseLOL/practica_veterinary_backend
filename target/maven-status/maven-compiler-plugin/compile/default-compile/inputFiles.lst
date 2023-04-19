@@ -1,7 +1,7 @@
-C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\address\StateCountryResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\clients\SocialNetworksClientsResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\clients\SocialNetworksClientsEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\animals\PatientResponse.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\error\ErrorsResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\medical\ViaAdministrationEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\university\UniversityEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\veterinary\SocialNetworksVeterinariesRepository.java
@@ -9,6 +9,7 @@ C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\medical\MedicalAppointmentRepository.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\brand\EmailBrandEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\shareds\animals\AllergyEntity.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\error_handlers\NotFoundController.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\veterinary\VeterinaryEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\brand\BrandResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\infraestructure\services\address\CountryService.java
@@ -46,6 +47,7 @@ C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\employee\TelephonesEmployeesEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\shareds\products\CategoryEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\animals\SpecieResponse.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\error\ErrorResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\shared\GenderRepository.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\medical\MedicationFormResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\shareds\GenderRequest.java
@@ -57,7 +59,9 @@ C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\veterinary\VeterinaryRepository.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\animals\BreedResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\shareds\products\BatchCodeResponse.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\error_handlers\BadRequestController.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\employee\TelephonesEmployeesResponse.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\error\BaseErrorResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\animals\SocialNetworksPatientResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\animals\SpecieEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\animals\SocialNetworksPatientEntity.java
@@ -124,6 +128,7 @@ C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\address\StreetEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\shareds\products\ExpirationEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\shareds\products\BatchCodeEntity.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\address\StateCountryRequest.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\address\StreetResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\laboratory\EmailsLaboratoriesEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\clients\ClientResponse.java
@@ -149,6 +154,7 @@ C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\medical\MedicalConsultationResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\laboratory\TelephonesLaboratoriesResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\brand\SocialNetworksBrandEntity.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\utils\exceptions\IdNotFoundException.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\clients\ClientRepository.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\requests\clients\ClientResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\laboratory\TelephonesLaboratoriesRepository.java
