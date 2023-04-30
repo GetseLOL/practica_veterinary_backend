@@ -24,7 +24,7 @@ public class StateCountryService implements IStateCountryService{
 
 	@Override
 	public StateCountryResponse create(StateCountryRequest request){
-		var byIdCountry = countryRepository.findById(request.getByIdCountry()).orElseThrow();
+		var byIdCountry = countryRepository.findById(request.getIdCountry()).orElseThrow();
 
 		var built = StateCountryEntity.builder()
 		                              .name(request.getName())

@@ -19,5 +19,5 @@ public class StateCountryRequest {
 	@Min(value = 1)
 	@Digits(integer = 20, fraction = 0, message = "The number is mandatory")
 	@NotNull(message = "The id is mandatory")
-	private Integer byIdCountry;
+	private Integer idCountry;
 }
