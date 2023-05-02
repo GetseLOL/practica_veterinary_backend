@@ -7,4 +7,7 @@ import com.veterinary.practica.infraestructure.abstract_services.shared.CrudServ
 public interface IStateCountryService extends
                                       CrudService<StateCountryRequest, StateCountryResponse, Long>{
 
+    default void delete(Long id) {
+        throw new UnsupportedOperationException("The method is unsupported");
+    }
 }

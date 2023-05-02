@@ -45,6 +45,7 @@ C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\brand\EmailBrandRepository.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\employee\TelephonesEmployeesEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\shareds\products\CategoryEntity.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\infraestructure\abstract_services\address\IStateCountryService.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\animals\SpecieResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\error\ErrorResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\shared\GenderRepository.java
@@ -171,8 +172,10 @@ C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\infraestructure\abstract_services\shared\CrudService.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\shareds\contact\SocialNetworkResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\laboratory\EmailsLaboratoriesResponse.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\infraestructure\services\address\StateCountryService.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\shared\animals\AllergyRepository.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\repositories\address\CountryRepository.java
+C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\controllers\address\StateCountryRestController.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\veterinary\SpecialityResponse.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\domains\entities\employee\RolEntity.java
 C:\Users\getse\proyecto-personal-spring\veterinary\src\main\java\com\veterinary\practica\api\models\responses\brand\EmailBrandResponse.java
