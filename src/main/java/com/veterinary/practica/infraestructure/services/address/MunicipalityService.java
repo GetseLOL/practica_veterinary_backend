@@ -5,8 +5,10 @@ import java.util.List;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.veterinary.practica.api.models.requests.address.MunicipalityRequest;
+import com.veterinary.practica.api.models.responses.address.CountryResponse;
 import com.veterinary.practica.api.models.responses.address.MunicipalityResponse;
 import com.veterinary.practica.api.models.responses.address.StateCountryResponse;
 import com.veterinary.practica.domains.entities.address.MunicipalityEntity;
@@ -15,7 +17,6 @@ import com.veterinary.practica.domains.repositories.address.StateCountryReposito
 import com.veterinary.practica.infraestructure.abstract_services.address.IMunicipalityService;
 import com.veterinary.practica.utils.exceptions.IdNotFoundException;
 
-import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
@@ -59,6 +60,7 @@ public class MunicipalityService implements IMunicipalityService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public MunicipalityResponse read(Long id) {
         MunicipalityEntity byIdMuncipality = municipalityRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("state country"));
@@ -67,9 +69,10 @@ public class MunicipalityService implements IMunicipalityService {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public Iterable<MunicipalityResponse> readAll() {
         var allMunicipalities = municipalityRepository.findAll();
-        
+
         log.info("Find all municipalities {}" + allMunicipalities);
 
         List<MunicipalityResponse> municipalityResponses = new ArrayList<>();
@@ -85,6 +88,11 @@ public class MunicipalityService implements IMunicipalityService {
         BeanUtils.copyProperties(entity, response);
         var stateCountryResponse = new StateCountryResponse();
         BeanUtils.copyProperties(entity.getStateCountry(), stateCountryResponse);
+
+        var countryResponse = new CountryResponse();
+        BeanUtils.copyProperties(entity.getStateCountry().getCountry(), countryResponse);
+        stateCountryResponse.setCountry(countryResponse);
+
         response.setStateCountry(stateCountryResponse);
         return response;
     }

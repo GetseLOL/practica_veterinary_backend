@@ -1,6 +1,5 @@
 package com.veterinary.practica.domains.entities.animals;
 
-import com.veterinary.practica.domains.entities.animals.BreedEntity;
 import com.veterinary.practica.domains.entities.clients.ClientEntity;
 import com.veterinary.practica.domains.entities.shareds.GenderEntity;
 import com.veterinary.practica.domains.entities.shareds.animals.AllergyEntity;
@@ -54,10 +53,6 @@ public class PatientEntity {
     private Integer numVisits;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "allergies_patients",
-            joinColumns = @JoinColumn(name = "id_patient"),
-            inverseJoinColumns = @JoinColumn(name = "id_allergy")
-    )
+    @JoinTable(name = "allergies_patients", joinColumns = @JoinColumn(name = "id_patient"), inverseJoinColumns = @JoinColumn(name = "id_allergy"))
     private List<AllergyEntity> allergies = new ArrayList<>();
 }

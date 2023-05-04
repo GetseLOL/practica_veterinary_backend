@@ -20,7 +20,7 @@ public class MunicipalityEntity {
     @Column(length = 60, nullable = false, unique = true)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_state_country", nullable = false)
     private StateCountryEntity stateCountry;
 

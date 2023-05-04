@@ -1,6 +1,5 @@
 package com.veterinary.practica.domains.entities.employee;
 
-import com.veterinary.practica.domains.entities.clients.ClientEntity;
 import com.veterinary.practica.domains.entities.clients.TelephonesClientsEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

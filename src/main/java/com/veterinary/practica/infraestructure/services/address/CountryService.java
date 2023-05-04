@@ -19,12 +19,12 @@ import java.util.List;
 @Slf4j
 @Transactional
 @Service
-public class CountryService implements ICountryService{
+public class CountryService implements ICountryService {
 
 	private final CountryRepository countryRepository;
 
 	@Override
-	public CountryResponse create(CountryRequest request){
+	public CountryResponse create(CountryRequest request) {
 		var builtCountry = CountryEntity.builder().name(request.getName()).build();
 		var savedCountry = countryRepository.save(builtCountry);
 		log.info("Country saved with id: {}", savedCountry.getId());
@@ -33,9 +33,9 @@ public class CountryService implements ICountryService{
 
 	@Override
 	public CountryResponse update(CountryRequest request,
-	                              Integer id){
+			Integer id) {
 		var findByIdCountry = countryRepository.findById(id)
-		                                       .orElseThrow(() -> new IdNotFoundException("country"));
+				.orElseThrow(() -> new IdNotFoundException("country"));
 		findByIdCountry.setName(request.getName());
 		var updatedByIdCountry = countryRepository.save(findByIdCountry);
 		log.info("Country update with id {} ", updatedByIdCountry.getId());
@@ -43,24 +43,26 @@ public class CountryService implements ICountryService{
 	}
 
 	@Override
-	public CountryResponse read(Integer id){
+	@Transactional(readOnly = true)
+	public CountryResponse read(Integer id) {
 		var findByIdCountry = countryRepository.findById(id)
-		                                       .orElseThrow(() -> new IdNotFoundException("country"));
+				.orElseThrow(() -> new IdNotFoundException("country"));
 		log.info("Country read with id: {}", findByIdCountry.getId());
 		return entityToResponse(findByIdCountry);
 	}
 
 	@Override
-	public Iterable<CountryResponse> readAll(){
+	@Transactional(readOnly = true)
+	public Iterable<CountryResponse> readAll() {
 		var allCountries = countryRepository.findAllByOrderByIdAsc();
 		log.info("Countries read all {}", allCountries);
 		List<CountryResponse> countriesResponseList = new ArrayList<>();
-		for(CountryEntity entity : allCountries)
+		for (CountryEntity entity : allCountries)
 			countriesResponseList.add(entityToResponse(entity));
 		return countriesResponseList;
 	}
 
-	private CountryResponse entityToResponse(CountryEntity entity){
+	private CountryResponse entityToResponse(CountryEntity entity) {
 		var response = new CountryResponse();
 		BeanUtils.copyProperties(entity, response);
 		return response;

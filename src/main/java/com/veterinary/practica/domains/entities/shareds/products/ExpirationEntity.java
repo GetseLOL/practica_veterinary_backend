@@ -1,6 +1,5 @@
 package com.veterinary.practica.domains.entities.shareds.products;
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

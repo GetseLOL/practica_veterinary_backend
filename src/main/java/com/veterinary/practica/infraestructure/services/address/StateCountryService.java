@@ -57,6 +57,7 @@ public class StateCountryService implements IStateCountryService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public StateCountryResponse read(Long id) {
 		StateCountryEntity byIdStateCountry = stateCountryRepository.findById(id)
 				.orElseThrow(() -> new IdNotFoundException("state country"));
@@ -65,12 +66,13 @@ public class StateCountryService implements IStateCountryService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public Iterable<StateCountryResponse> readAll() {
 		var allStateCountries = stateCountryRepository.findAll();
 		log.info("State countries all {}", allStateCountries);
 
 		List<StateCountryResponse> stateCountryResponseList = new ArrayList<>();
-		
+
 		for (StateCountryEntity stateCountry : allStateCountries)
 			stateCountryResponseList.add(entityToResponse(stateCountry));
 

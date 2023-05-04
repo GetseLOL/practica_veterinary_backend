@@ -23,26 +23,27 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MunicipalityRestController {
 
-    private final IMunicipalityService service;
+	private final IMunicipalityService service;
 
-    @PostMapping
-	public ResponseEntity<MunicipalityResponse> post(@RequestBody @Valid MunicipalityRequest request){
+	@PostMapping
+	public ResponseEntity<MunicipalityResponse> post(@RequestBody @Valid MunicipalityRequest request) {
 		return ResponseEntity.ok(this.service.create(request));
 	}
 
 	@GetMapping("{id}")
-	public ResponseEntity<MunicipalityResponse> get(@PathVariable Long id){
+	public ResponseEntity<MunicipalityResponse> get(@PathVariable Long id) {
 		return ResponseEntity.ok(this.service.read(id));
 	}
 
 	@GetMapping
-	public ResponseEntity<List<MunicipalityResponse>> getAll(){
+	public ResponseEntity<List<MunicipalityResponse>> getAll() {
 		return ResponseEntity.ok((List<MunicipalityResponse>) this.service.readAll());
 	}
 
 	@PutMapping("{id}")
-	public ResponseEntity<MunicipalityResponse> put(@RequestBody @Valid MunicipalityRequest request, @PathVariable Long id){
+	public ResponseEntity<MunicipalityResponse> put(@RequestBody @Valid MunicipalityRequest request,
+			@PathVariable Long id) {
 		return ResponseEntity.ok(this.service.update(request, id));
 	}
-    
+
 }
