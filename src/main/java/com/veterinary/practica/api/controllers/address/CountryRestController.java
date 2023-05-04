@@ -16,35 +16,32 @@ import java.util.List;
 @AllArgsConstructor
 public class CountryRestController{
 
-	private final ICountryService countryService;
+	private final ICountryService service;
 
 	@PostMapping
 	public ResponseEntity<CountryResponse> post(@RequestBody @Valid CountryRequest request){
-		return ResponseEntity.ok(this.countryService.create(request));
+		return ResponseEntity.ok(this.service.create(request));
 	}
 
 	@GetMapping
 	public ResponseEntity<List<CountryResponse>> getAll(){
-		return ResponseEntity.ok((List<CountryResponse>) this.countryService.readAll());
+		return ResponseEntity.ok((List<CountryResponse>) this.service.readAll());
 	}
 
 	@GetMapping("{id}")
-	public ResponseEntity<CountryResponse> get(@PathVariable
-	                                               @Digits(message = "The id is required numeric",
-			                                               integer = 0, fraction = 0)
-	                                               Integer id){
-		return ResponseEntity.ok(this.countryService.read(id));
+	public ResponseEntity<CountryResponse> get(@PathVariable Integer id){
+		return ResponseEntity.ok(this.service.read(id));
 	}
 
 	@PutMapping("{id}")
 	public ResponseEntity<CountryResponse> put(
 			@RequestBody @Valid CountryRequest request, @PathVariable Integer id){
-		return ResponseEntity.ok(this.countryService.update(request, id));
+		return ResponseEntity.ok(this.service.update(request, id));
 	}
 
-	@DeleteMapping("{id}")
-	public ResponseEntity<Void> delete(@PathVariable Integer id){
-		this.countryService.delete(id);
-		return ResponseEntity.noContent().build();
-	}
+	// @DeleteMapping("{id}")
+	// public ResponseEntity<Void> delete(@PathVariable Integer id){
+	// 	this.countryService.delete(id);
+	// 	return ResponseEntity.noContent().build();
+	// }
 }

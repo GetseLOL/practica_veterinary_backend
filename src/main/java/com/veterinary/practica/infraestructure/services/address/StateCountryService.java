@@ -21,27 +21,27 @@ import java.util.List;
 @Slf4j
 @Transactional
 @Service
-public class StateCountryService implements IStateCountryService{
+public class StateCountryService implements IStateCountryService {
 
 	private final CountryRepository countryRepository;
 	private final StateCountryRepository stateCountryRepository;
 
 	@Override
-	public StateCountryResponse create(StateCountryRequest request){
+	public StateCountryResponse create(StateCountryRequest request) {
 		var byIdCountry = countryRepository.findById(request.getIdCountry())
 				.orElseThrow(() -> new IdNotFoundException("state country"));
 
 		var built = StateCountryEntity.builder()
-		                              .name(request.getName())
-		                              .country(byIdCountry)
-		                              .build();
+				.name(request.getName())
+				.country(byIdCountry)
+				.build();
 		var saved = stateCountryRepository.save(built);
 		log.info("State Country saved with id: {}", saved.getId());
 		return entityToResponse(saved);
 	}
 
 	@Override
-	public StateCountryResponse update(StateCountryRequest request, Long id){
+	public StateCountryResponse update(StateCountryRequest request, Long id) {
 		var stateCountryToUpdate = stateCountryRepository.findById(id)
 				.orElseThrow(() -> new IdNotFoundException("state country"));
 		var country = countryRepository.findById(request.getIdCountry())
@@ -52,32 +52,32 @@ public class StateCountryService implements IStateCountryService{
 
 		var stateCountryUpdate = stateCountryRepository.save(stateCountryToUpdate);
 
-
 		log.info("State country update with id {}", stateCountryUpdate.getId());
 		return entityToResponse(stateCountryUpdate);
 	}
 
 	@Override
-	public StateCountryResponse read(Long id){
-		StateCountryEntity byIdStateCountry = stateCountryRepository.findById(id).orElseThrow();
+	public StateCountryResponse read(Long id) {
+		StateCountryEntity byIdStateCountry = stateCountryRepository.findById(id)
+				.orElseThrow(() -> new IdNotFoundException("state country"));
 		log.info("Country read with id: {}", byIdStateCountry.getId());
 		return entityToResponse(byIdStateCountry);
 	}
 
 	@Override
-	public Iterable<StateCountryResponse> readAll(){
-
+	public Iterable<StateCountryResponse> readAll() {
 		var allStateCountries = stateCountryRepository.findAll();
 		log.info("State countries all {}", allStateCountries);
+
 		List<StateCountryResponse> stateCountryResponseList = new ArrayList<>();
-		for(StateCountryEntity stateCountry : allStateCountries){
+		
+		for (StateCountryEntity stateCountry : allStateCountries)
 			stateCountryResponseList.add(entityToResponse(stateCountry));
-		}
 
 		return stateCountryResponseList;
 	}
 
-	private StateCountryResponse entityToResponse(StateCountryEntity entity){
+	private StateCountryResponse entityToResponse(StateCountryEntity entity) {
 		var response = new StateCountryResponse();
 		BeanUtils.copyProperties(entity, response);
 		var countryResponse = new CountryResponse();

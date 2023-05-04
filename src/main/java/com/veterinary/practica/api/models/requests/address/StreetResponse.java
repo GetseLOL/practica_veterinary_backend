@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class StreetResponse {
 	private Long id;
 	private String name;
-	private ColonyResponse colony;
+	private ColonyRequest colony;
 }
