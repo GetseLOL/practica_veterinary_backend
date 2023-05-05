@@ -5,17 +5,10 @@ import com.veterinary.practica.api.models.responses.address.StateCountryResponse
 import com.veterinary.practica.infraestructure.abstract_services.address.IStateCountryService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("address/state_country")
@@ -37,6 +30,14 @@ public class StateCountryRestController{
 	@GetMapping
 	public ResponseEntity<List<StateCountryResponse>> getAll(){
 		return ResponseEntity.ok((List<StateCountryResponse>) this.service.readAll());
+	}
+
+	@GetMapping("search")
+	public ResponseEntity<List<StateCountryResponse>> getByName(@RequestParam String country) {
+		var byNameStateCountry = service.findByName(country);
+		return byNameStateCountry.isEmpty() ?
+				ResponseEntity.noContent().build() :
+				ResponseEntity.ok(byNameStateCountry);
 	}
 
 	@PutMapping("{id}")

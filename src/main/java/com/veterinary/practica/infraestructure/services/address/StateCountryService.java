@@ -70,12 +70,18 @@ public class StateCountryService implements IStateCountryService {
 	public Iterable<StateCountryResponse> readAll() {
 		var allStateCountries = stateCountryRepository.findAll();
 		log.info("State countries all {}", allStateCountries);
-
 		List<StateCountryResponse> stateCountryResponseList = new ArrayList<>();
-
 		for (StateCountryEntity stateCountry : allStateCountries)
 			stateCountryResponseList.add(entityToResponse(stateCountry));
+		return stateCountryResponseList;
+	}
 
+	@Override
+	public List<StateCountryResponse> findByName(String country) {
+		var byNamesStateCountries = stateCountryRepository.findByName(country);
+		List<StateCountryResponse> stateCountryResponseList = new ArrayList<>();
+		for(StateCountryEntity stateCountry : byNamesStateCountries)
+			stateCountryResponseList.add(entityToResponse(stateCountry));
 		return stateCountryResponseList;
 	}
 
@@ -87,4 +93,6 @@ public class StateCountryService implements IStateCountryService {
 		response.setCountry(countryResponse);
 		return response;
 	}
+
+
 }

@@ -1,6 +1,6 @@
 package com.veterinary.practica.api.models.requests.clients;
 
-import com.veterinary.practica.api.models.requests.address.AddressResponse;
+import com.veterinary.practica.api.models.requests.address.AddressRequest;
 import com.veterinary.practica.api.models.requests.shareds.GenderRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,5 +18,5 @@ public class ClientResponse {
 	private String secondLastName;
 	private EmailClientResponse emailClient;
 	private GenderRequest gender;
-	private AddressResponse address;
+	private AddressRequest address;
 }

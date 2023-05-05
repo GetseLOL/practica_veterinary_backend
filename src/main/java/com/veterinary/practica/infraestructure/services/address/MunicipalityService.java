@@ -1,12 +1,5 @@
 package com.veterinary.practica.infraestructure.services.address;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.beans.BeanUtils;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.veterinary.practica.api.models.requests.address.MunicipalityRequest;
 import com.veterinary.practica.api.models.responses.address.CountryResponse;
 import com.veterinary.practica.api.models.responses.address.MunicipalityResponse;
@@ -16,9 +9,14 @@ import com.veterinary.practica.domains.repositories.address.MunicipalityReposito
 import com.veterinary.practica.domains.repositories.address.StateCountryRepository;
 import com.veterinary.practica.infraestructure.abstract_services.address.IMunicipalityService;
 import com.veterinary.practica.utils.exceptions.IdNotFoundException;
-
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @Slf4j
@@ -62,10 +60,10 @@ public class MunicipalityService implements IMunicipalityService {
     @Override
     @Transactional(readOnly = true)
     public MunicipalityResponse read(Long id) {
-        MunicipalityEntity byIdMuncipality = municipalityRepository.findById(id)
+        MunicipalityEntity byIdMunicipality = municipalityRepository.findById(id)
                 .orElseThrow(() -> new IdNotFoundException("state country"));
-        log.info("Country read with id: {}", byIdMuncipality.getId());
-        return entityToResponse(byIdMuncipality);
+        log.info("Country read with id: {}", byIdMunicipality.getId());
+        return entityToResponse(byIdMunicipality);
     }
 
     @Override
@@ -73,7 +71,7 @@ public class MunicipalityService implements IMunicipalityService {
     public Iterable<MunicipalityResponse> readAll() {
         var allMunicipalities = municipalityRepository.findAll();
 
-        log.info("Find all municipalities {}" + allMunicipalities);
+        log.info("Find all municipalities {}", allMunicipalities);
 
         List<MunicipalityResponse> municipalityResponses = new ArrayList<>();
 

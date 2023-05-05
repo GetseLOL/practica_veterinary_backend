@@ -27,6 +27,14 @@ public class CountryRestController {
 		return ResponseEntity.ok((List<CountryResponse>) this.service.readAll());
 	}
 
+	@GetMapping("search")
+	public ResponseEntity<List<CountryResponse>> getByName(@RequestParam String country) {
+		var byNameCountry = service.findByName(country);
+		return byNameCountry.isEmpty() ?
+				ResponseEntity.noContent().build() :
+				ResponseEntity.ok(byNameCountry);
+	}
+
 	@GetMapping("{id}")
 	public ResponseEntity<CountryResponse> get(@PathVariable Integer id) {
 		return ResponseEntity.ok(this.service.read(id));
@@ -38,9 +46,4 @@ public class CountryRestController {
 		return ResponseEntity.ok(this.service.update(request, id));
 	}
 
-	// @DeleteMapping("{id}")
-	// public ResponseEntity<Void> delete(@PathVariable Integer id){
-	// this.countryService.delete(id);
-	// return ResponseEntity.noContent().build();
-	// }
 }

@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class AddressResponse {
+public class AddressRequest {
 	private String reference;
 	private String postal_code;
 	private String numInt;
