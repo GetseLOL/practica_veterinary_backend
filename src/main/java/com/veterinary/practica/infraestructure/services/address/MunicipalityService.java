@@ -81,6 +81,17 @@ public class MunicipalityService implements IMunicipalityService {
         return municipalityResponses;
     }
 
+    @Override
+    public List<MunicipalityResponse> readByName(String municipality) {
+        var byNameMunicipality = municipalityRepository.findByName(municipality);
+        log.info("Find municipalities with municipality {}", byNameMunicipality);
+        List<MunicipalityResponse> municipalityResponseList = new ArrayList<>();
+
+        for (MunicipalityEntity municipalityEntity : byNameMunicipality)
+            municipalityResponseList.add(entityToResponse(municipalityEntity));
+        return municipalityResponseList;
+    }
+
     private MunicipalityResponse entityToResponse(MunicipalityEntity entity) {
         var response = new MunicipalityResponse();
         BeanUtils.copyProperties(entity, response);
@@ -94,5 +105,4 @@ public class MunicipalityService implements IMunicipalityService {
         response.setStateCountry(stateCountryResponse);
         return response;
     }
-
 }

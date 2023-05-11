@@ -12,5 +12,5 @@ public interface IStateCountryService extends
     default void delete(Long id) {
         throw new UnsupportedOperationException("The method is unsupported");
     }
-    List<StateCountryResponse> findByName(String name);
+    List<StateCountryResponse> readByName(String name);
 }

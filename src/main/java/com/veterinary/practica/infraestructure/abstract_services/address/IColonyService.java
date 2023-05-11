@@ -12,4 +12,5 @@ public interface IColonyService extends CrudService<ColonyRequest, ColonyRespons
     }
 
     List<ColonyResponse> readByName(String colony);
+    ColonyResponse readByColonyNameAndMunicipalityName(String colony, String municipality);
 }

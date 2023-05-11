@@ -2,10 +2,13 @@ com\veterinary\practica\VeterinaryApplication.class
 com\veterinary\practica\domains\repositories\employee\EmailEmployeeRepository.class
 com\veterinary\practica\infraestructure\services\address\CountryService.class
 com\veterinary\practica\domains\entities\medical\MedicalConsultationEntity.class
+com\veterinary\practica\infraestructure\services\address\ColonyService.class
 com\veterinary\practica\api\controllers\address\CountryRestController.class
+com\veterinary\practica\infraestructure\abstract_services\address\ICountryService.class
 com\veterinary\practica\api\controllers\address\ColonyRestController.class
 com\veterinary\practica\infraestructure\services\address\StateCountryService.class
 com\veterinary\practica\domains\entities\laboratory\LaboratoryEntity.class
 com\veterinary\practica\domains\entities\laboratory\LaboratoryEntity$LaboratoryEntityBuilder.class
 com\veterinary\practica\domains\entities\medical\MedicalConsultationEntity$MedicalConsultationEntityBuilder.class
+com\veterinary\practica\infraestructure\abstract_services\address\IColonyService.class
 com\veterinary\practica\domains\repositories\address\CountryRepository.class

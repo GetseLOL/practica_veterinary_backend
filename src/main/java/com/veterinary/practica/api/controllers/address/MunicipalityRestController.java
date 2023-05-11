@@ -1,22 +1,14 @@
 package com.veterinary.practica.api.controllers.address;
 
-import java.util.List;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.veterinary.practica.api.models.requests.address.MunicipalityRequest;
 import com.veterinary.practica.api.models.responses.address.MunicipalityResponse;
 import com.veterinary.practica.infraestructure.abstract_services.address.IMunicipalityService;
-
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("address/municipality")
@@ -38,6 +30,16 @@ public class MunicipalityRestController {
 	@GetMapping
 	public ResponseEntity<List<MunicipalityResponse>> getAll() {
 		return ResponseEntity.ok((List<MunicipalityResponse>) this.service.readAll());
+	}
+
+	@GetMapping("search")
+	public ResponseEntity<List<MunicipalityResponse>> getByName(@RequestParam String name) {
+		if(name.equals(""))
+			return ResponseEntity.noContent().build();
+		var response = this.service.readByName(name);
+		return response.isEmpty() ?
+				ResponseEntity.noContent().build() :
+				ResponseEntity.ok(this.service.readByName(name));
 	}
 
 	@PutMapping("{id}")

@@ -26,20 +26,30 @@ public class ColonyRestController {
         return ResponseEntity.ok((List<ColonyResponse>) this.service.readAll());
     }
 
-    @GetMapping("search")
-    public ResponseEntity<List<ColonyResponse>> getByName(@RequestParam String colony){
-        var response = service.readByName(colony);
+    @GetMapping("search/by-colony")
+    public ResponseEntity<List<ColonyResponse>> getByName(@RequestParam String name){
+        if(name.equals(""))
+            return ResponseEntity.noContent().build();
+
+        var response = service.readByName(name);
         return response.isEmpty() ?
                 ResponseEntity.noContent().build() :
                 ResponseEntity.ok(response);
+    }
+
+    @GetMapping("search/by-colony-and-municipality")
+    public ResponseEntity<ColonyResponse> get(@RequestParam String nameColony, @RequestParam String nameMunicipality){
+        if(nameColony.equals(""))
+            return ResponseEntity.noContent().build();
+        if(nameMunicipality.equals(""))
+            return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(this.service.readByColonyNameAndMunicipalityName(nameColony, nameMunicipality));
     }
 
     @GetMapping("{id}")
     public ResponseEntity<ColonyResponse> get(@PathVariable Long id) {
         return ResponseEntity.ok(this.service.read(id));
     }
-
-
 
     @PutMapping("{id}")
     public ResponseEntity<ColonyResponse> put(

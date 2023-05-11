@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface CountryRepository extends CrudRepository<CountryEntity, Integer> {
 	List<CountryEntity> findAllByOrderByIdAsc();
-	List<CountryEntity> findByName(String name);
+	CountryEntity findByName(String name);
 }

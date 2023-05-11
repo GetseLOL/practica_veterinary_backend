@@ -77,7 +77,7 @@ public class StateCountryService implements IStateCountryService {
 	}
 
 	@Override
-	public List<StateCountryResponse> findByName(String country) {
+	public List<StateCountryResponse> readByName(String country) {
 		var byNamesStateCountries = stateCountryRepository.findByName(country);
 		List<StateCountryResponse> stateCountryResponseList = new ArrayList<>();
 		for(StateCountryEntity stateCountry : byNamesStateCountries)

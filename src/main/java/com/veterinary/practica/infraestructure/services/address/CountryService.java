@@ -63,12 +63,9 @@ public class CountryService implements ICountryService {
 	}
 
 	@Override
-	public List<CountryResponse> findByName(String country) {
+	public CountryResponse readByName(String country) {
 		var byNamesCountries = countryRepository.findByName(country);
-		List<CountryResponse> countryResponseList = new ArrayList<>();
-		for(CountryEntity entity : byNamesCountries)
-			countryResponseList.add(entityToResponse(entity));
-		return countryResponseList;
+		return entityToResponse(byNamesCountries);
 	}
 
 	private CountryResponse entityToResponse(CountryEntity entity) {

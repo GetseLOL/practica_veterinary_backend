@@ -28,11 +28,8 @@ public class CountryRestController {
 	}
 
 	@GetMapping("search")
-	public ResponseEntity<List<CountryResponse>> getByName(@RequestParam String country) {
-		var byNameCountry = service.findByName(country);
-		return byNameCountry.isEmpty() ?
-				ResponseEntity.noContent().build() :
-				ResponseEntity.ok(byNameCountry);
+	public ResponseEntity<CountryResponse> getByName(@RequestParam @Valid CountryRequest name) {
+		return ResponseEntity.ok(this.service.readByName(name.getName()));
 	}
 
 	@GetMapping("{id}")

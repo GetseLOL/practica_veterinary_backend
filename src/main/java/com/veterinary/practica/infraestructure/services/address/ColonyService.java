@@ -82,12 +82,20 @@ public class ColonyService implements IColonyService {
     }
 
     @Override
-    public List<ColonyResponse> readByName(String name) {
-        var byNamesColonies = colonyRepository.findByName(name);
+    public List<ColonyResponse> readByName(String colony) {
+        var byNamesColonies = colonyRepository.findByName(colony);
         List<ColonyResponse> colonyResponseList = new ArrayList<>();
-        for(ColonyEntity colony : byNamesColonies)
-            colonyResponseList.add(entityToResponse(colony));
+        for(ColonyEntity colonyEntity : byNamesColonies)
+            colonyResponseList.add(entityToResponse(colonyEntity));
+        log.info("Read colonies {}", byNamesColonies);
         return colonyResponseList;
+    }
+
+    @Override
+    public ColonyResponse readByColonyNameAndMunicipalityName(String colony, String municipality) {
+        var byNameAndMunicipalityName = colonyRepository.findByNameAndMunicipalityName(colony, municipality);
+        log.info("Read colony and municipality with names {}", byNameAndMunicipalityName);
+        return entityToResponse(byNameAndMunicipalityName);
     }
 
     private ColonyResponse entityToResponse(ColonyEntity entity) {
